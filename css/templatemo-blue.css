@@ -140,21 +140,29 @@ h2 {
 /* header section */
 header {
   text-align: center;
-  min-height: 400px;
+  min-height: 400px; /* Tinggi minimum header */
   overflow: hidden;
-  position: relative;
-  padding-top: 160px;
-  padding-bottom: 140px;
+  display: flex; /* Menggunakan flexbox */
+  flex-direction: column; /* Mengatur arah kolom */
+  justify-content: center; /* Memposisikan elemen secara vertikal di tengah */
+  align-items: center; /* Memposisikan elemen secara horizontal di tengah */
+  padding: 40px 0; /* Ruang atas dan bawah */
 }
+
 header img {
-  display: inline-block !important;
+  border-radius: 50%; /* Menjaga gambar tetap bulat */
+  max-width: 150px; /* Ukuran maksimum gambar */
+  height: auto; /* Menjaga proporsi gambar */
 }
-header h2 {
-  padding-top: 40px;
+
+header h1 {
+  margin: 20px 0 0; /* Atur margin judul */
 }
+
 header hr {
-  border-color: #3366CC;
-  width: 100px;
+  border-color: #3366CC; /* Warna garis */
+  width: 100px; /* Lebar garis */
+  margin: 20px auto; /* Memusatkan garis horizontal */
 }
 
 /* about section */
@@ -163,22 +171,38 @@ header hr {
   box-shadow: 0px 1px 5px rgba(50,50,50,0.08);
 }
 
-/* skills section */
+/* skill section */
 .skills {
   background: #3366CC;
   color: #f5f5f5;
+  padding: 20px;
 }
-.skills .progress {
-  border-radius: 0px;
-  height: 4px;
+
+.skill-set {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
 }
-.skills .progress .progress-bar-primary {
-  background: #204090;
+
+.skill {
+  background-color: #204090;
+  color: white;
+  padding: 10px 15px;
+  border-radius: 5px;
+  font-weight: bold;
+  text-align: center;
+  transition: transform 0.2s;
 }
-.skills strong {
-  display: inline-block;
-  font-weight: normal;
-  padding-bottom: 6px;
+
+.skill:hover {
+  transform: scale(1.1); /* Efek hover untuk memperbesar */
+}
+
+/* Media query untuk responsivitas di perangkat lebih kecil */
+@media (max-width: 768px) {
+  .skill-set {
+      grid-template-columns: repeat(3, 1fr);
+  }
 }
 
 /* education section */
